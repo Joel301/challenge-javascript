@@ -33,7 +33,22 @@ const {
 // < 16
 
 function exponencial(exp) {
-
+    var exp = exp
+    var fun = (val)=>{
+        return val**exp
+    }
+    return fun
+    // return (val) =>{
+    //     if (val== 2) {
+    //         return 4
+    //     }
+    //     if (val== 3) {
+    //         return 9
+    //     }
+    //     if (val== 4) {
+    //         return 16
+    //     }
+    // }
 }
 
 // ----- Recursión -----

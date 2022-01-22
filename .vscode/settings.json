@@ -1,0 +1,4 @@
+{
+    "mocha.path": "tests/",
+    "mocha.files.glob": "tests/**/*.js"
+}
