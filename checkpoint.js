@@ -34,21 +34,11 @@ const {
 
 function exponencial(exp) {
     var exp = exp
-    var fun = (val)=>{
-        return val**exp
+    var fun = (val) => {
+        return val ** exp
+
     }
     return fun
-    // return (val) =>{
-    //     if (val== 2) {
-    //         return 4
-    //     }
-    //     if (val== 3) {
-    //         return 9
-    //     }
-    //     if (val== 4) {
-    //         return 16
-    //     }
-    // }
 }
 
 // ----- Recursión -----
@@ -85,7 +75,18 @@ function exponencial(exp) {
 // Aclaraciones: el segundo parametro que recibe la funcion ('direccion') puede ser pasado vacio (null)
 
 function direcciones(laberinto) {
-
+    if (!laberinto) return ''
+    arrPc = ['N', 'S', 'E', 'O']
+    for (var pc in arrPc) {
+        if (laberinto[arrPc[pc]] == 'pared') { continue };
+        if (laberinto[arrPc[pc]] == 'destino') return arrPc[pc];
+        if (typeof (laberinto[arrPc[pc]]) === 'object') {
+            res = direcciones(laberinto[arrPc[pc]])
+            if (!res) continue
+            return arrPc[pc] + res
+        }
+    }
+    return ''
 }
 
 
@@ -103,7 +104,18 @@ function direcciones(laberinto) {
 // deepEqualArrays([0,1,[[0,1,2],1,2]], [0,1,[[0,1,2],1,2]]) => true
 
 function deepEqualArrays(arr1, arr2) {
-
+    if (arr1.length != arr2.length) return false
+    for (i in arr1) {
+        if (typeof (arr1[i]) == 'object' && typeof (arr2[i]) == 'object') {
+            r = deepEqualArrays(arr1[i], arr2[i])
+            if (!r) return false
+        } else if (typeof(arr1[i]) != typeof(arr2[i])) {
+            return false
+        }else if (arr1[i] != arr2[i]) {
+            return false
+        }
+    }
+    return true
 }
 
 
@@ -125,7 +137,7 @@ function OrderedLinkedList() {
 // notar que Node esta implementado en el archivo DS
 
 // Y el metodo print que permite visualizar la lista:
-OrderedLinkedList.prototype.print = function(){
+OrderedLinkedList.prototype.print = function () {
     let print = 'head'
     let pointer = this.head
     while (pointer) {
@@ -153,8 +165,8 @@ OrderedLinkedList.prototype.print = function(){
 // > LL.print()
 // < 'head --> 5 --> 3 --> 1 --> null'
 //               4
-OrderedLinkedList.prototype.add = function(val){
-    
+OrderedLinkedList.prototype.add = function (val) {
+
 }
 
 
@@ -173,8 +185,8 @@ OrderedLinkedList.prototype.add = function(val){
 // > LL.removeHigher()
 // < null
 
-OrderedLinkedList.prototype.removeHigher = function(){
-    
+OrderedLinkedList.prototype.removeHigher = function () {
+
 }
 
 
@@ -193,8 +205,8 @@ OrderedLinkedList.prototype.removeHigher = function(){
 // > LL.removeHigher()
 // < null
 
-OrderedLinkedList.prototype.removeLower = function(){
-    
+OrderedLinkedList.prototype.removeLower = function () {
+
 }
 
 
@@ -226,8 +238,8 @@ OrderedLinkedList.prototype.removeLower = function(){
 // > multiCallbacks(cbs1, cbs2);
 // < ["2-1", "1-1", "1-2", "2-2"];
 
-function multiCallbacks(cbs1, cbs2){
-    
+function multiCallbacks(cbs1, cbs2) {
+
 }
 
 
@@ -245,8 +257,8 @@ function multiCallbacks(cbs1, cbs2){
 // 5   9
 // resultado:[5,8,9,32,64]
 
-BinarySearchTree.prototype.toArray = function() {
-    
+BinarySearchTree.prototype.toArray = function () {
+
 }
 
 
@@ -265,7 +277,7 @@ BinarySearchTree.prototype.toArray = function() {
 // informarse sobre algoritmos, leerlos de un pseudocodigo e implemnterlos alcanzara
 
 function primalityTest(n) {
-    
+
 }
 
 
@@ -275,7 +287,7 @@ function primalityTest(n) {
 // https://en.wikipedia.org/wiki/Quicksort
 
 function quickSort(array) {
-    
+
 }
 // QuickSort ya lo conocen solo que este 
 // ordena de mayor a menor
@@ -297,8 +309,8 @@ function quickSort(array) {
 // > reverse(95823);
 // < 32859
 
-function reverse(num){
-    
+function reverse(num) {
+
 }
 // la grandiosa resolucion de Wilson!!!
 // declaran una variable donde 
